@@ -10,10 +10,6 @@
 	path = datawave-accumulo-utils
 	url = git@github.com:NationalSecurityAgency/datawave-accumulo-utils.git
 	branch = master
-[submodule "datawave-sample-configuration"]
-	path = datawave-sample-configuration
-	url = git@github.com:NationalSecurityAgency/datawave-sample-configuration.git
-	branch = master
 [submodule "datawave-base-rest-responses"]
 	path = datawave-base-rest-responses
 	url = git@github.com:NationalSecurityAgency/datawave-base-rest-responses.git
@@ -73,10 +69,6 @@
 [submodule "datawave-audit-service"]
 	path = datawave-audit-service
 	url = git@github.com:NationalSecurityAgency/datawave-audit-service.git
-	branch = master
-[submodule "datawave-docker-quickstart"]
-	path = datawave-docker-quickstart
-	url = git@github.com:NationalSecurityAgency/datawave-docker-quickstart.git
 	branch = master
 [submodule "datawave-hazelcast-service"]
 	path = datawave-hazelcast-service

@@ -7,3 +7,6 @@ target/
 .classpath
 .project
 .settings/
+
+sample_configuration/*-dev.yml
+sample_configuration/*-dev.yaml

@@ -1,0 +1,84 @@
+[submodule "datawave-parent"]
+	path = datawave-parent
+	url = git@github.com:NationalSecurityAgency/datawave-parent.git
+	branch = master
+[submodule "datawave-utils"]
+	path = datawave-utils
+	url = git@github.com:NationalSecurityAgency/datawave-utils.git
+	branch = master
+[submodule "datawave-accumulo-utils"]
+	path = datawave-accumulo-utils
+	url = git@github.com:NationalSecurityAgency/datawave-accumulo-utils.git
+	branch = master
+[submodule "datawave-sample-configuration"]
+	path = datawave-sample-configuration
+	url = git@github.com:NationalSecurityAgency/datawave-sample-configuration.git
+	branch = master
+[submodule "datawave-base-rest-responses"]
+	path = datawave-base-rest-responses
+	url = git@github.com:NationalSecurityAgency/datawave-base-rest-responses.git
+	branch = master
+[submodule "datawave-metrics-reporter"]
+	path = datawave-metrics-reporter
+	url = git@github.com:NationalSecurityAgency/datawave-metrics-reporter.git
+	branch = master
+[submodule "datawave-authorization-service"]
+	path = datawave-authorization-service
+	url = git@github.com:NationalSecurityAgency/datawave-authorization-service.git
+	branch = master
+[submodule "datawave-metadata-utils"]
+	path = datawave-metadata-utils
+	url = git@github.com:NationalSecurityAgency/datawave-metadata-utils.git
+	branch = master
+[submodule "datawave-common-utils"]
+	path = datawave-common-utils
+	url = git@github.com:NationalSecurityAgency/datawave-common-utils.git
+	branch = master
+[submodule "datawave-type-utils"]
+	path = datawave-type-utils
+	url = git@github.com:NationalSecurityAgency/datawave-type-utils.git
+	branch = master
+[submodule "datawave-in-memory-accumulo"]
+	path = datawave-in-memory-accumulo
+	url = git@github.com:NationalSecurityAgency/datawave-in-memory-accumulo.git
+	branch = master
+[submodule "datawave-dictionary-service"]
+	path = datawave-dictionary-service
+	url = git@github.com:NationalSecurityAgency/datawave-dictionary-service.git
+	branch = master
+[submodule "datawave-service-parent"]
+	path = datawave-service-parent
+	url = git@github.com:NationalSecurityAgency/datawave-service-parent.git
+	branch = master
+[submodule "datawave-spring-boot-starter"]
+	path = datawave-spring-boot-starter
+	url = git@github.com:NationalSecurityAgency/datawave-spring-boot-starter.git
+	branch = master
+[submodule "datawave-spring-boot-starter-cache"]
+	path = datawave-spring-boot-starter-cache
+	url = git@github.com:NationalSecurityAgency/datawave-spring-boot-starter-cache.git
+	branch = master
+[submodule "datawave-spring-boot-starter-audit"]
+	path = datawave-spring-boot-starter-audit
+	url = git@github.com:NationalSecurityAgency/datawave-spring-boot-starter-audit.git
+	branch = master
+[submodule "datawave-config-service"]
+	path = datawave-config-service
+	url = git@github.com:NationalSecurityAgency/datawave-config-service.git
+	branch = master
+[submodule "datawave-accumulo-service"]
+	path = datawave-accumulo-service
+	url = git@github.com:NationalSecurityAgency/datawave-accumulo-service.git
+	branch = master
+[submodule "datawave-audit-service"]
+	path = datawave-audit-service
+	url = git@github.com:NationalSecurityAgency/datawave-audit-service.git
+	branch = master
+[submodule "datawave-docker-quickstart"]
+	path = datawave-docker-quickstart
+	url = git@github.com:NationalSecurityAgency/datawave-docker-quickstart.git
+	branch = master
+[submodule "datawave-hazelcast-service"]
+	path = datawave-hazelcast-service
+	url = git@github.com:NationalSecurityAgency/datawave-hazelcast-service.git
+	branch = master

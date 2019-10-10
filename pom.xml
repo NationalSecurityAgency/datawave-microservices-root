@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>datawave-microservice-parent</artifactId>
+        <groupId>gov.nsa.datawave.microservice</groupId>
+        <version>1.5</version>
+    </parent>
+    <artifactId>datawave-microservices-build-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <url>https://code.nsa.gov/datawave-microservices-root</url>
+    <modules>
+        <module>datawave-parent</module>
+        <module>datawave-service-parent</module>
+        <module>datawave-in-memory-accumulo</module>
+        <module>datawave-accumulo-utils</module>
+        <module>datawave-common-utils</module>
+        <module>datawave-metadata-utils</module>
+        <module>datawave-type-utils</module>
+        <module>datawave-base-rest-responses</module>
+        <module>datawave-metrics-reporter</module>
+        <module>datawave-spring-boot-starter</module>
+        <module>datawave-spring-boot-starter-audit</module>
+        <module>datawave-spring-boot-starter-cache</module>
+        <module>datawave-accumulo-service</module>
+        <module>datawave-audit-service</module>
+        <module>datawave-authorization-service</module>
+        <module>datawave-config-service</module>
+        <module>datawave-dictionary-service</module>
+        <module>datawave-hazelcast-service</module>
+    </modules>
+    <repositories>
+        <repository>
+            <!--
+                This repository is a temporary work-around until we can publish artifacts to maven central.
+                This allows us to retrieve released microservice artifacts from our github repository.
+            -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>datawave-github-mvn-repo</id>
+            <url>https://raw.githubusercontent.com/NationalSecurityAgency/datawave/mvn-repo</url>
+        </repository>
+    </repositories>
+</project>

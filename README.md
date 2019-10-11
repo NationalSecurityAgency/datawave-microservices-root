@@ -4,8 +4,43 @@ This module contains DATAWAVE external services. These are microservices that
 are intended to work in conjunction with, and eventually replace, the Wildfly
 based DATAWAVE web service.
 
-DATAWAVE microservices are built on top of [Spring Cloud](http://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/single/spring-cloud.html)
-and [Spring Boot](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/).
+DATAWAVE microservices are built on top of [Spring Cloud](http://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html)
+and [Spring Boot](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/htmlsingle/).
+
+## How to Use This Repository
+
+The microservices and associated utility projects are intended to be
+developed, versioned, and released indepdendently and as such are stored
+in separate repositories. This repository includes them all as submodules
+in order to provide an easy way to import them all in an IDE for viewing
+the code, or refactoring. [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+require some extra commands over the normal ones that one may be familiar
+with.
+
+To clone the repository, use the following:
+```bash
+git clone --recurse-submodules git@github.com:NationalSecurityAgency/datawave-microservices-root.git
+# Or for HTTPS:
+# git clone --recurse-submodules https://github.com/NationalSecurityAgency/datawave-microservices-root.git
+```
+
+If you have already cloned the repository and didn't use the
+`--recurse-submodules` option, then all of the directories will be empty.
+You can initialize them with:
+```bash
+git submodule update --init --recursive
+```
+
+Each of the submodules will be in a detached head state. If you want to
+check out the master branch on each, you can use:
+```bash
+git submodule foreach 'git checkout master'
+```
+
+To update submodules:
+```bash
+git pull --recurse-submodules
+```
 
 ## Why Microservices?
 
@@ -94,7 +129,7 @@ configured audit sinks (e.g., file and Accumulo).
 
 Query services that support auditing integrate with the audit service via the
 *spring-boot-starter-datawave-audit* module. View the starter
-[README](spring-boot-starter-datawave-audit/README.md) for details.
+[README](datawave-spring-boot-starter-audit/README.md) for details.
 
 ### Dictionary Service
 
@@ -109,7 +144,7 @@ certificate is provided and no JWT is provided.
 
 The Accumulo service is an administrator utility that provides a simple rest
 API for performing basic table and security operations on Accumulo. View the
-service [README](accumulo-service/README.md) for details.
+service [README](datawave-accumulo-service/README.md) for details.
 
 ### Service Discovery
 
@@ -199,7 +234,7 @@ done
 Next, build the DATAWAVE microservices.
 
 ```bash
-cd /path/to/datawave/services/build-parent
+cd /path/to/datawave/services
 mvn -Pexec clean install
 # You can add -DskipTests to skip running unit tests
 # You can add -Pdocker to build Docker images
@@ -217,10 +252,10 @@ Now launch the authorization service.
 
 ```bash
 cd /path/to/datawave/services
-java -jar authorization-service/target/authorization-service*-exec.jar --spring.profiles.active=dev,nomessaging,mock 
+java -jar authorization-service/service/target/authorization-service*-exec.jar --spring.profiles.active=dev,nomessaging,mock
 ```
 
-Note that the authorization service is configured for two-way authentication, and the PKI materials located [here](spring-boot-starter-datawave/src/main/resources) are used by default (password for all: *ChangeIt*). For example, to access the authorization service endpoints below, simply import either the **testUser.p12** or **testServer.p12** client cert into your browser or preferred HTTP client. The default PKI configuration is provided for testing purposes only and is not intended for production use.
+Note that the authorization service is configured for two-way authentication, and the PKI materials located [here](datawave-spring-boot-starter/src/main/resources) are used by default (password for all: *ChangeIt*). For example, to access the authorization service endpoints below, simply import either the **testUser.p12** or **testServer.p12** client cert into your browser or preferred HTTP client. The default PKI configuration is provided for testing purposes only and is not intended for production use.
 
 Once all services are running, you should be able to hit some of the 
 following URLs:
@@ -236,13 +271,13 @@ following URLs:
 You may see an exception from either the authorization or config service due to
 an "Illegal key size". If you see this exception, it means you JRE/JDK does not
 have the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction
-Policy files installed. See [here](http://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/single/spring-cloud.html#_cloud_native_applications)
+Policy files installed. See [here](http://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#_cloud_native_applications)
 for more information.
 
 Now launch the dictionary service, if desired:
 ```bash
 cd /path/to/datawave/services
-java -jar dictionary-service/target/dictionary-service*-exec.jar --spring.profiles.active=dev,nomessaging,remoteauth 
+java -jar dictionary-service/service/target/dictionary-service*-exec.jar --spring.profiles.active=dev,nomessaging,remoteauth
 ```
 You should be able to retrieve the data and edge dictionaries at the following URLs:
 * `https://localhost:8843/dictionary/data/v1/`
@@ -257,7 +292,7 @@ following example assumes the PKI materials from spring-boot-starter-datawave ar
 ```bash
 # Retrieve a JWT:
 cd /path/to/datawave/services
-export PKI_DIR=$PWD/spring-boot-starter-datawave/src/main/resources/pki
+export PKI_DIR=$PWD/datawave-spring-boot-starter/src/main/resources/pki
 curl --cacert $PKI_DIR/ca.pem -E $PKI_DIR/user.pem https://localhost:8643/authorization/v1/authorize > /tmp/jwt.txt
 curl -H "Authorization: Bearer $(</tmp/jwt.txt)" --cacert $PKI_DIR/ca.pem https://localhost:8843/dictionary/data/v1/
 ```
@@ -278,7 +313,7 @@ can run the audit service as follows:
 
 ```bash
 cd /path/to/datawave/services
-java -jar audit-service/target/audit-service*-exec.jar --spring.profiles.active=dev 
+java -jar audit-service/service/target/audit-service*-exec.jar --spring.profiles.active=dev
 ```
 
 Once the audit service is running, you can call it by passing the JWT you 
@@ -291,7 +326,7 @@ curl -k -H "Authorization: Bearer <insert JWT text here>" https://localhost:8743
 # curl -k <specify certificate info> https://localhost:8643/authorization/v1/authorize > /tmp/jwt.txt
 # curl -q -k -H "Authorization: Bearer $(</tmp/jwt.txt)" https://localhost:8743/audit/mgmt/health
 # NOTE: if you are using the supplied configuration, the test user cert will work:
-# export PKI_DIR=spring-boot-starter-datawave/src/main/resources/pki
+# export PKI_DIR=datawave-spring-boot-starter/src/main/resources/pki
 # curl --fail --cacert $PKI_DIR/ca.pem -E $PKI_DIR/user.pem https://localhost:8643/authorization/v1/authorize > /tmp/jwt.txt
 # curl -q --fail --cacert $PKI_DIR/ca.pem -H "Authorization: Bearer $(</tmp/jwt.txt)" https://localhost:8743/audit/mgmt/health
 ```
@@ -329,9 +364,9 @@ cat > /tmp/consul.d/consul.json <<_EOF_
     "datacenter": "demo_dc",
     "disable_update_check": true,
     "enable_agent_tls_for_checks": true,
-    "key_file": "$PWD/common/src/main/resources/pki/server-key.pem",
-    "cert_file": "$PWD/common/src/main/resources/pki/server-crt.pem",
-    "ca_file": "$PWD/common/src/main/resources/pki/ca.pem"
+    "key_file": "$PWD/datawave-spring-boot-starter/src/main/resources/pki/server-key.pem",
+    "cert_file": "$PWD/datawave-spring-boot-starter/src/main/resources/pki/server-crt.pem",
+    "ca_file": "$PWD/datawave-spring-boot-starter/src/main/resources/pki/ca.pem"
 }
 _EOF_
 consul agent -dev -ui -config-dir=/tmp/consul.d
@@ -350,7 +385,7 @@ is to reconfigure the authorization service to not require a client certificate
 Or, if you have Docker available just run the Consul image:
 
 ```bash
-docker run -d --rm --name consul --network=host -v $PWD/common/src/main/resources/pki:/pki \
+docker run -d --rm --name consul --network=host -v $PWD/datawave-spring-boot-starter/src/main/resources/pki:/pki \
     -e CONSUL_LOCAL_CONFIG='{"datacenter": "demo_dc", \
         "disable_update_check": true, "enable_agent_tls_for_checks": true, \
         "key_file": "/pki/server-key.pem", "cert_file": "/pki/server-crt.pem", \
@@ -368,7 +403,7 @@ run the authorization service with consul, but without RabbitMQ support, you
 would run:
 
 ```bash
-java -jar authorization-service/target/authorization-service*-exec.jar --spring.profiles.active=dev,consul,nomessaging
+java -jar authorization-service/service/target/authorization-service*-exec.jar --spring.profiles.active=dev,consul,nomessaging
 ```
 
 If you intend to run Consul and alo use RabbitMQ, then you must define a service
@@ -404,7 +439,7 @@ To tun the Hazelcast service, execute the following. Note that running the
 Hazelcast service requires Consul.
 
 ```bash
-java -jar hazelcast-service/target/hazelcast-server-*-exec.jar --spring.profiles.active=dev,consul,nomessaging
+java -jar hazelcast-service/service/target/hazelcast-server-*-exec.jar --spring.profiles.active=dev,consul,nomessaging
 ```
 
 Remove the `,nomessaging` if you are using RabbitMQ. If you want to run more
@@ -413,13 +448,13 @@ non-secure port for each copy. For example, you could run a second and third
 copy with:
 
 ```bash
-java -jar hazelcast-service/target/hazelcast-server-*-exec.jar --spring.profiles.active=dev,consul,nomessaging --cachePort=8843
+java -jar hazelcast-service/service/target/hazelcast-server-*-exec.jar --spring.profiles.active=dev,consul,nomessaging --cachePort=8843
 ```
 
 and
 
 ```bash
-java -jar hazelcast-service/target/hazelcast-server-*-exec.jar --spring.profiles.active=dev,consul,nomessaging --cachePort=8943
+java -jar hazelcast-service/service/target/hazelcast-server-*-exec.jar --spring.profiles.active=dev,consul,nomessaging --cachePort=8943
 ```
 
 To configure the authorization service to run the Hazelcast client, you can
@@ -447,7 +482,7 @@ the same architecture that the Docker image will be running.
 Then, using Docker Compose, you can run the demo:
 
 ```bash
-cd docker
+cd docker-quickstart
 docker-compose up -d
 ```
 
@@ -479,39 +514,50 @@ allows scaling with `docker-compose scale`.
 
 # Directory/Build Layout
 
-The external services are organized as follows. Authorization, audit, and dictionary
-have two components: api and service. For example, authorization-api contains the
-components of the Authorization service that a client would use, and authorization-service
-contains the implementation of the service. Each of these modules can be versioned
-separately. If only code in authorization-service changes, its version can be
-updated, and a new version of the authorization service deployed with no other
-changes. If code in the authorization-api directory changes, then this is an API
-change and care must be taken.
+The external services are organized as follows. An executabl service (e.g.,
+Authorization, Audit, Accumulo, Dictionary) all have two components: api and
+service. For example, [`datawave-authorization-service/api`](datawave-authorization-service/api)
+contains the components of the Authorization service that a client would use,
+and [`datawave-authorization-service/service`](datawave-authorization-service/service)
+contains the implementation of the service. The package as a whole is versioned
+using [SemVer](https://semver.org/). If code in the service sub-folder changes,
+then typically this means it is an api-compatible change and only the minor or
+patch version need be updated. However, it should be updated for the module as
+a whole. This means the api module will receive a new version even though code
+in it hasn't changed. If code in the api module does change, then care must be
+taken. Typically the change in an API will involve the response objects. In
+this case, the response object should be copied and given a new class name with
+a version appended. The service must then be updated to have a new version
+endpoint that works with the new response object. The old and new api version
+must be maintained over enough releases to ensure that users have switched to
+the new service api version.
 
 In addition to the common pattern for services, this directory also contains:
-* `config-service`: The configuration service. It has no API (other than that 
-  provided by Spring Boot), so there is no `config-api` module.
-* `hazelcast-service`: This is the Hazelcast cache service. Multiple copies of this
-  are intended to be run and form a cluster for caching data.
-* `hazelcast-client`: This is the client code required to access a running
-  Hazelcast clustered cache.
-* `hazelcast-common`: This is code required by both `hazelcast-client` and `hazelcast-service`
-* `metrics-reporter`: This contains code to publish metrics from a Dropwizard
-  metrics registry to StatsD, NSQ, or Timely.
-* `accumulo-utils`: General utilities for working with Accumulo and datawave marking functions
-* `base-rest-responses`: Base rest response and exception classes that are used by query/service responses
-* `common-utils`: Extremely low level utilities that might be used by any service (e.g., datawave-specific string utils)
-* `type-utils`: Normalizers and data types that are part of the datawave metadata and query system
-* `spring-boot-starter-datawave`: This is a service starter that can be used
+* `datawave-config-service`: The configuration service. It has no API (other
+  than that provided by Spring Boot), so there is no `config-api` module.
+* `datawave-hazelcast-service`: This is the Hazelcast cache service. Multiple
+  copies of this are intended to be run and form a cluster for caching data.
+  The hazelcast service contains two other sub-modules:
+  * `client`: This is the client code required to access a running Hazelcast
+    clustered cache.
+  * `common`: This is code required by both the client and service.
+* `datawave-metrics-reporter`: This contains code to publish metrics from a
+  Dropwizard metrics registry to StatsD, NSQ, or Timely.
+* `datawave-accumulo-utils`: General utilities for working with Accumulo and
+  datawave marking functions
+* `datawave-base-rest-responses`: Base rest response and exception classes that
+  are used by query/service responses
+* `datawave-common-utils`: Extremely low level utilities that might be used by
+  any service (e.g., datawave-specific string utils)
+* `datawave-type-utils`: Normalizers and data types that are part of the datawave metadata and query system
+* `datawave-spring-boot-starter`: This is a service starter that can be used
   when creating a new microservice. See the "Common Service Starter" section above.
-* `spring-boot-starter-datawave-cache`: This is a service starter that customizes the default
+* `datawave-spring-boot-starter-audit`: This is a service starter that provides an
+  auto-configured REST client for submitting messages to the audit service.
+* `datawave-spring-boot-starter-cache`: This is a service starter that customizes the default
   spring boot caching layer. Since datawave services declare some named caches, this starter
   allows another cache configuration to be declared and marked as an @Primary bean in order
-  to configure application-level caching
-* `build-parent`: This contains a parent pom that references everything else in the
-  services directory. Although each service/api can be versioned independently,
-  it is desirable to be able to build everything together using one Maven command.
-  This pom helps accomplish that goal.
+  to configure application-level caching.
 * `docker-quickstart`: This contains quickstart configuration for running the
   microservices using Docker compose.
 * `sample_configuration`: This contains example configuration that you might

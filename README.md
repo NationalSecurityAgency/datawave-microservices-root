@@ -4,7 +4,7 @@ This module contains DATAWAVE external services. These are microservices that
 are intended to work in conjunction with, and eventually replace, the Wildfly
 based DATAWAVE web service.
 
-DATAWAVE microservices are built on top of [Spring Cloud](http://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html)
+DATAWAVE microservices are built on top of [Spring Cloud](http://cloud.spring.io/spring-cloud-static/Greenwich.SR3/single/spring-cloud.html)
 and [Spring Boot](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/htmlsingle/).
 
 ## How to Use This Repository
@@ -274,7 +274,7 @@ following URLs:
 You may see an exception from either the authorization or config service due to
 an "Illegal key size". If you see this exception, it means you JRE/JDK does not
 have the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction
-Policy files installed. See [here](http://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#_cloud_native_applications)
+Policy files installed. See [here](http://cloud.spring.io/spring-cloud-static/Greenwich.SR3/single/spring-cloud.html#_cloud_native_applications)
 for more information.
 
 Now launch the dictionary service, if desired:

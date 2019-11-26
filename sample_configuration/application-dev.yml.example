@@ -5,10 +5,10 @@ system.name: DEV
 
 server:
   ssl:
-    trust-store: 'classpath:/testCA.p12'
+    trust-store: 'classpath:testCA.p12'
     trust-store-type: PKCS12
     trust-store-password: 'ChangeIt'
-    key-store: 'classpath:/testServer.p12'
+    key-store: 'classpath:testServer.p12'
     key-store-type: PKCS12
     key-store-password: 'ChangeIt'
 

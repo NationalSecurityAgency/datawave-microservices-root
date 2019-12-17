@@ -8,3 +8,15 @@ server:
 # only useful for development, and in production, this property should not be set (or
 # should only be set to true)
 hazelcast.client.enabled: ${hzClient:false}
+
+# Uncomment the next line to enable full debug logging for the netty pipeline used by Spring WebClient.
+# The logging for the handler can be further overridden by changing the log level for "io.netty.handler.logging"
+# and/or setting the property "reactor.netty.tcp.ssl.client.debug" to "true".
+#reactor.netty.http.client.wiretap: true
+
+logging:
+  # Log all http client actions (request and response URL, headers)
+  #reactor.netty.http.client: DEBUG
+  # Uncomment the next two lines to enable Apache HttpClient header wire + context logging, or just the next line for full wire + context logging
+  #org.apache.http: DEBUG
+  #org.apache.http.wire: ERROR

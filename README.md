@@ -1,5 +1,7 @@
 # DATAWAVE External Services
 
+[![Apache License][li]][ll]
+
 This module contains DATAWAVE external services. These are microservices that
 are intended to work in conjunction with, and eventually replace, the Wildfly
 based DATAWAVE web service.
@@ -569,3 +571,6 @@ In addition to the common pattern for services, this directory also contains:
 [accumulo-svc]:https://github.com/NationalSecurityAgency/datawave-accumulo-service/blob/master/README.md
 [auth-api]:https://github.com/NationalSecurityAgency/datawave-authorization-service/blob/master/api/
 [auth-svc]:https://github.com/NationalSecurityAgency/datawave-authorization-service/blob/master/service/
+
+[li]: http://img.shields.io/badge/license-ASL-blue.svg
+[ll]: https://www.apache.org/licenses/LICENSE-2.0

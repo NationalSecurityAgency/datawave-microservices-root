@@ -1,0 +1,19 @@
+warehouse-cluster:
+  accumulo:
+    zookeepers: 'localhost'
+    instanceName: 'accumulo'
+    username: 'root'
+    password: 'secret'
+
+logging:
+  level:
+    ROOT: error
+    datawave:
+      ingest: info
+      iterators: info
+      query: info
+      security: info
+      util: info
+
+
+

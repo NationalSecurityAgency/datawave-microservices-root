@@ -1,12 +1,6 @@
 # This template is for configuring your DEV profile for the authorization microservice.
 # You should copy this file to authorization-dev.yml before changing configuration.
-spring:
-  security:
-    datawave:
-      oauth:
-        refreshTokenTtl: 604800
-        authCodeTtl: 60
-        idTokenTtl: 86400
+
 server:
   port: 8643
 

@@ -12,6 +12,10 @@ spring:
   security:
     datawave:
       use-trusted-subject-headers: true
+      oauth:
+        refreshTokenTtl: 604800
+        authCodeTtl: 60
+        idTokenTtl: 86400
 
 logging:
   level:

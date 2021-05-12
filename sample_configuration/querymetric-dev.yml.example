@@ -1,0 +1,15 @@
+server:
+  port: 9043
+
+warehouse-cluster:
+  accumulo:
+    zookeepers: 'localhost'
+    instanceName: 'accumulo'
+    username: 'root'
+    password: 'secret'
+
+logging:
+  level:
+    ROOT: info
+    datawave:
+      microservice.querymetric: trace

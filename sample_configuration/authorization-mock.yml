@@ -8,50 +8,42 @@ mock:
       AuthorizedUser: DW_USER
       JBossAdministrator: JBOSS_ADMIN
       Administrator: DW_ADMIN
-    # Define per-user roles and auths. If the incoming DN (in lower-case subjectDN<issuerDN> form) matches an entry here, the
+      FooRole: FOO
+      BarRole: BAR
+      DefRole: DEF
+      PublicRole: PUBLIC
+      PrivateRole: PRIVATE
+      RoleA: A
+      RoleB: B
+      RoleC: C
+      RoleD: D
+      RoleE: E
+      RoleF: F
+      RoleG: G
+      RoleH: H
+      RoleI: I
+    # Define mock user roles and auths. If the incoming DN (in lower-case subjectDN<issuerDN> form) matches an entry here, the
     # corresponding roles and authorizations are provided instead of the global ones.
-    per-user-roles-to-auths:
-    #
-    #  "[subjectDN<issuerDN>]":
-    #    ROLE1: auth1
-    #    ROLE2: auth2
-    #    ROLE3: auth3
-    #
     # E.g., the users below match the testUser.p12 and testServer.p12 certs in spring-boot-starter-datawave/src/main/resources/
     # (password: ChangeIt) and will also work with the datawave quickstart and its example datasets
-
+    mock-users:
       "[cn=test a. user, ou=example developers, o=example corp, c=us<cn=example corp ca, o=example corp, c=us>]":
-        AuthorizedUser: DW_USER
-        JBossAdministrator: JBOSS_ADMIN
-        Administrator: DW_ADMIN
-        FooRole: FOO
-        BarRole: BAR
-        DefRole: DEF
-        PublicRole: PUBLIC
-        PrivateRole: PRIVATE
-        RoleA: A
-        RoleB: B
-        RoleC: C
-        RoleD: D
-        RoleE: E
-        RoleF: F
-        RoleG: G
-        RoleH: H
-        RoleI: I
-
+        email: test.user@examplecorp.com
       "[cn=testserver.example.com, ou=servers, o=example corp, c=us<cn=example corp ca, o=example corp, c=us>]":
-        AuthorizedServer: DW_SERV
-        FooRole: FOO
-        BarRole: BAR
-        DefRole: DEF
-        PublicRole: PUBLIC
-        PrivateRole: PRIVATE
-        RoleA: A
-        RoleB: B
-        RoleC: C
-        RoleD: D
-        RoleE: E
-        RoleF: F
-        RoleG: G
-        RoleH: H
-        RoleI: I
+        roles-to-auths:
+          AuthorizedServer: DW_SERV
+          FooRole: FOO
+          BarRole: BAR
+          DefRole: DEF
+          PublicRole: PUBLIC
+          PrivateRole: PRIVATE
+          RoleA: A
+          RoleB: B
+          RoleC: C
+          RoleD: D
+          RoleE: E
+          RoleF: F
+          RoleG: G
+          RoleH: H
+          RoleI: I
+        email: test.server@examplecorp.com

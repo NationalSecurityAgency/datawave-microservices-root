@@ -74,3 +74,6 @@
 	path = datawave-hazelcast-service
 	url = git@github.com:NationalSecurityAgency/datawave-hazelcast-service.git
 	branch = master
+[submodule "datawave-query-metric-service"]
+	path = datawave-query-metric-service
+	url = git@github.com:NationalSecurityAgency/datawave-query-metric-service.git

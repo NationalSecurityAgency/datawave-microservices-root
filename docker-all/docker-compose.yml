@@ -51,7 +51,7 @@ services:
         condition: service_started
 
   configuration:
-    image: datawave/config-service
+    image: datawave/config-service:1.4
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     command:
       - --spring.output.ansi.enabled=ALWAYS
@@ -74,7 +74,7 @@ services:
         condition: service_started
 
   cache:
-    image: datawave/hazelcast-service
+    image: datawave/hazelcast-service:1.6
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 2
     command:
@@ -103,7 +103,7 @@ services:
         condition: service_started
 
   authorization:
-    image: datawave/authorization-service
+    image: datawave/authorization-service:1.10
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 1
     command:
@@ -128,7 +128,7 @@ services:
         condition: service_healthy
 
   accumulo:
-    image: datawave/accumulo-service
+    image: datawave/accumulo-service:1.1.1
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 1
     command:
@@ -159,7 +159,7 @@ services:
         condition: service_healthy
 
   audit:
-    image: datawave/audit-service
+    image: datawave/audit-service:1.9
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 1
     command:
@@ -184,7 +184,7 @@ services:
         condition: service_healthy
 
   metrics:
-    image: datawave/query-metric-service
+    image: datawave/query-metric-service:1.2
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 1
     command:
@@ -215,7 +215,7 @@ services:
         condition: service_healthy
 
   dictionary:
-    image: datawave/dictionary-service
+    image: datawave/dictionary-service:1.1
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 1
     command:

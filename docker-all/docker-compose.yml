@@ -184,7 +184,7 @@ services:
         condition: service_healthy
 
   metrics:
-    image: datawave/query-metric-service:1.2
+    image: datawave/query-metric-service:1.4.1
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 1
     command:

@@ -4,6 +4,7 @@ logs/
 .idea/
 *.iml
 *.iws
+.env
 
 .classpath
 .project

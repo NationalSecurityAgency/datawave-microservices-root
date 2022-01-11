@@ -8,6 +8,7 @@ mock:
       AuthorizedUser: DW_USER
       JBossAdministrator: JBOSS_ADMIN
       Administrator: DW_ADMIN
+      MetricsAdministrator: MetricsAdministrator
       FooRole: FOO
       BarRole: BAR
       DefRole: DEF

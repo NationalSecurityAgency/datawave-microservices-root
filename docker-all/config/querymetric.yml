@@ -26,10 +26,10 @@ warehouse-cluster:
 
 logging:
   level:
-    ROOT: trace
+    ROOT: debug
     datawave:
       microservice:
-        querymetric: trace
+        querymetric: debug
       iterators: error
       query: error
       ingest: error
@@ -52,7 +52,7 @@ datawave:
         metadataTableName: datawave.queryMetrics_m
         metadataDefaultAuths: PUBLIC
         recordWriterMaxMemory: 100000
-        recordWriterMaxLatency: 0
+        recordWriterMaxLatency: 10000
         recordWriterNumThreads: 4
         enableBloomFilter: false
         queryVisibility: PUBLIC
@@ -61,6 +61,7 @@ datawave:
         baseMaps: "{}"
       timely:
         enabled: false
+
 
   # this should be consolidated into a metadata application profile
   metadata:
@@ -71,7 +72,8 @@ datawave:
       "[datawave.data.type.DateType]": "datawave.data.type.RawDateType"
 
 hazelcast:
-  client.enabled: false
+  client:
+    enabled: false
   server:
     enabled: true
     xml-config: |

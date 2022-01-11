@@ -7,6 +7,6 @@ server:
 
 logging:
   level:
-    ROOT: TRACE
+    ROOT: debug
 
 

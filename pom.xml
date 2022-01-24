@@ -29,7 +29,6 @@
         <module>datawave-config-service</module>
         <module>datawave-dictionary-service</module>
         <module>datawave-hazelcast-service</module>
-        <module>datawave-query-metric-service</module>
     </modules>
     <repositories>
         <repository>

@@ -1,7 +1,7 @@
 [submodule "datawave-parent"]
 	path = datawave-parent
 	url = git@github.com:NationalSecurityAgency/datawave-parent.git
-	branch = master
+	branch = feature/spring-boot-2.4
 [submodule "datawave-utils"]
 	path = datawave-utils
 	url = git@github.com:NationalSecurityAgency/datawave-utils.git

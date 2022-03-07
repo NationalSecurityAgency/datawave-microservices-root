@@ -54,6 +54,13 @@ web service into microservices will allow components to evolve at different
 rates. It will also allow components to be scaled independently as the
 need arises.
 
+## Build Order
+
+1. datawave-parent
+2. datawave-service-parent
+3. datawave-microservices-root
+4. datawave
+
 
 ## Features
 

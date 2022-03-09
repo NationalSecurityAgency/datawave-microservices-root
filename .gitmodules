@@ -1,7 +1,7 @@
 [submodule "datawave-parent"]
 	path = datawave-parent
 	url = git@github.com:NationalSecurityAgency/datawave-parent.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-utils"]
 	path = datawave-utils
 	url = git@github.com:NationalSecurityAgency/datawave-utils.git
@@ -9,11 +9,11 @@
 [submodule "datawave-accumulo-utils"]
 	path = datawave-accumulo-utils
 	url = git@github.com:NationalSecurityAgency/datawave-accumulo-utils.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-base-rest-responses"]
 	path = datawave-base-rest-responses
 	url = git@github.com:NationalSecurityAgency/datawave-base-rest-responses.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-metrics-reporter"]
 	path = datawave-metrics-reporter
 	url = git@github.com:NationalSecurityAgency/datawave-metrics-reporter.git
@@ -21,19 +21,19 @@
 [submodule "datawave-authorization-service"]
 	path = datawave-authorization-service
 	url = git@github.com:NationalSecurityAgency/datawave-authorization-service.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-metadata-utils"]
 	path = datawave-metadata-utils
 	url = git@github.com:NationalSecurityAgency/datawave-metadata-utils.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-common-utils"]
 	path = datawave-common-utils
 	url = git@github.com:NationalSecurityAgency/datawave-common-utils.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-type-utils"]
 	path = datawave-type-utils
 	url = git@github.com:NationalSecurityAgency/datawave-type-utils.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-in-memory-accumulo"]
 	path = datawave-in-memory-accumulo
 	url = git@github.com:NationalSecurityAgency/datawave-in-memory-accumulo.git
@@ -41,36 +41,36 @@
 [submodule "datawave-dictionary-service"]
 	path = datawave-dictionary-service
 	url = git@github.com:NationalSecurityAgency/datawave-dictionary-service.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-service-parent"]
 	path = datawave-service-parent
 	url = git@github.com:NationalSecurityAgency/datawave-service-parent.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-spring-boot-starter"]
 	path = datawave-spring-boot-starter
 	url = git@github.com:NationalSecurityAgency/datawave-spring-boot-starter.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-spring-boot-starter-cache"]
 	path = datawave-spring-boot-starter-cache
 	url = git@github.com:NationalSecurityAgency/datawave-spring-boot-starter-cache.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-spring-boot-starter-audit"]
 	path = datawave-spring-boot-starter-audit
 	url = git@github.com:NationalSecurityAgency/datawave-spring-boot-starter-audit.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-config-service"]
 	path = datawave-config-service
 	url = git@github.com:NationalSecurityAgency/datawave-config-service.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-accumulo-service"]
 	path = datawave-accumulo-service
 	url = git@github.com:NationalSecurityAgency/datawave-accumulo-service.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-audit-service"]
 	path = datawave-audit-service
 	url = git@github.com:NationalSecurityAgency/datawave-audit-service.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices
 [submodule "datawave-hazelcast-service"]
 	path = datawave-hazelcast-service
 	url = git@github.com:NationalSecurityAgency/datawave-hazelcast-service.git
-	branch = feature/spring-boot-2.4
+	branch = feature/queryMicroservices

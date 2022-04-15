@@ -12,13 +12,33 @@ and [Spring Boot](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/referenc
 ## How to Use This Repository
 
 The microservices and associated utility projects are intended to be
-developed, versioned, and released indepdendently and as such are stored
+developed, versioned, and released independently and as such are stored
 in separate repositories. This repository includes them all as submodules
 in order to provide an easy way to import them all in an IDE for viewing
 the code, or refactoring. [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 require some extra commands over the normal ones that one may be familiar
 with.
 
+### When using the features/queryMicroservices branch...
+It's easiest to clone the repository pointing the submodules AT the features/queryMicroservices branch
+```bash
+git clone --recurse-submodules git@github.com:NationalSecurityAgency/datawave-microservices-root.git --branch feature/queryMicroservices
+git clone --recurse-submodules git@github.com:NationalSecurityAgency/datawave.git --branch feature/queryMicroservices
+
+cd datawave-microservices-root/datawave-parent
+mvn clean install
+
+cd ../datawave-service-parent
+mvn clean install
+
+cd ../
+mvn clean install
+
+cd ../datawave
+mvn clean install
+```
+
+### When NOT using the features/queryMicroservices branch...
 To clone the repository, use the following:
 ```bash
 git clone --recurse-submodules git@github.com:NationalSecurityAgency/datawave-microservices-root.git

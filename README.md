@@ -22,10 +22,21 @@ with.
 ### When using the features/queryMicroservices branch...
 It's easiest to clone the repository pointing the submodules AT the features/queryMicroservices branch
 ```bash
+# This will checkout the feature/queryMicroservices branch for the base repos.
+# By default, the submodules will all be in a detached head state.
 git clone --recurse-submodules git@github.com:NationalSecurityAgency/datawave-microservices-root.git --branch feature/queryMicroservices
 git clone --recurse-submodules git@github.com:NationalSecurityAgency/datawave.git --branch feature/queryMicroservices
 
-cd datawave-microservices-root/datawave-parent
+# Checkout the feature/queryMicroservices branch for each submodule so that we are no longer in a detached head state.
+# The addition of `|| :` will ensure that the command is executed for each submodule, 
+# ignoring failures for submodules that don't have a feature/queryMicroservices branch.
+cd datawave-microservices-root
+git submodule foreach 'git checkout feature/queryMicroservices || :'
+
+cd ../datawave
+git submodule foreach 'git checkout feature/queryMicroservices || :'
+
+cd ../datawave-microservices-root/datawave-parent
 mvn clean install
 
 cd ../datawave-service-parent

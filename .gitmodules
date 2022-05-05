@@ -38,10 +38,6 @@
 	path = datawave-in-memory-accumulo
 	url = git@github.com:NationalSecurityAgency/datawave-in-memory-accumulo.git
 	branch = master
-[submodule "datawave-dictionary-service"]
-	path = datawave-dictionary-service
-	url = git@github.com:NationalSecurityAgency/datawave-dictionary-service.git
-	branch = feature/queryMicroservices
 [submodule "datawave-service-parent"]
 	path = datawave-service-parent
 	url = git@github.com:NationalSecurityAgency/datawave-service-parent.git

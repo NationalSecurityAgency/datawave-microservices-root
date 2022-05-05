@@ -27,7 +27,6 @@
         <module>datawave-audit-service</module>
         <module>datawave-authorization-service</module>
         <module>datawave-config-service</module>
-        <module>datawave-dictionary-service</module>
         <module>datawave-hazelcast-service</module>
     </modules>
     <repositories>

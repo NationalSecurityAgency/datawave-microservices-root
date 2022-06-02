@@ -34,9 +34,9 @@ git submodule update --init --recursive
 ```
 
 Each of the submodules will be in a detached head state. If you want to
-check out the master branch on each, you can use:
+check out the main branch on each, you can use:
 ```bash
-git submodule foreach 'git checkout master'
+git submodule foreach 'git checkout main'
 ```
 
 To update submodules:
@@ -565,12 +565,12 @@ In addition to the common pattern for services, this directory also contains:
   run the config service against in order to provide configuration for the various
   microservices.
 
-[sb-starter]:https://github.com/NationalSecurityAgency/datawave-spring-boot-starter/blob/master/README.md
-[sb-starter-res]:https://github.com/NationalSecurityAgency/datawave-spring-boot-starter/blob/master/src/main/resources/
-[sb-starter-audit]:https://github.com/NationalSecurityAgency/datawave-spring-boot-starter-audit/blob/master/README.md
-[accumulo-svc]:https://github.com/NationalSecurityAgency/datawave-accumulo-service/blob/master/README.md
-[auth-api]:https://github.com/NationalSecurityAgency/datawave-authorization-service/blob/master/api/
-[auth-svc]:https://github.com/NationalSecurityAgency/datawave-authorization-service/blob/master/service/
+[sb-starter]:https://github.com/NationalSecurityAgency/datawave-spring-boot-starter/blob/main/README.md
+[sb-starter-res]:https://github.com/NationalSecurityAgency/datawave-spring-boot-starter/blob/main/src/main/resources/
+[sb-starter-audit]:https://github.com/NationalSecurityAgency/datawave-spring-boot-starter-audit/blob/main/README.md
+[accumulo-svc]:https://github.com/NationalSecurityAgency/datawave-accumulo-service/blob/main/README.md
+[auth-api]:https://github.com/NationalSecurityAgency/datawave-authorization-service/blob/main/api/
+[auth-svc]:https://github.com/NationalSecurityAgency/datawave-authorization-service/blob/main/service/
 
 [li]: http://img.shields.io/badge/license-ASL-blue.svg
 [ll]: https://www.apache.org/licenses/LICENSE-2.0

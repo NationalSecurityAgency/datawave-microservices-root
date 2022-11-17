@@ -34,7 +34,7 @@ services:
         condition: service_started
 
   configuration:
-    image: datawave/config-service
+    image: datawave/config-service:1.5
     command:
       - --spring.output.ansi.enabled=ALWAYS
       - --spring.profiles.active=consul,native,open_actuator

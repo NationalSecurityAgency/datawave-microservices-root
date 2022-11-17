@@ -1,0 +1,12 @@
+server:
+  ssl:
+  outbound-ssl:
+    key-store: /etc/pki/discovery.p12
+    key-store-password: 'ChangeIt'
+    key-store-type: PKCS12
+
+logging:
+  level:
+    ROOT: debug
+
+

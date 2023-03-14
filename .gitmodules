@@ -81,4 +81,4 @@
 [submodule "datawave-spring-boot-starter-query-metric"]
 	path = datawave-spring-boot-starter-query-metric
 	url = git@github.com:NationalSecurityAgency/datawave-spring-boot-starter-query-metric.git
-	branch = 1.5.5
+	branch = main

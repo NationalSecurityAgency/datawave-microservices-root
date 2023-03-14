@@ -4,7 +4,7 @@
     <parent>
         <groupId>gov.nsa.datawave.microservice</groupId>
         <artifactId>datawave-microservice-parent</artifactId>
-        <version>1.9-SNAPSHOT</version>
+        <version>1.9</version>
     </parent>
     <artifactId>datawave-microservices-build-parent</artifactId>
     <version>2.1-SNAPSHOT</version>
@@ -15,20 +15,22 @@
         <module>datawave-service-parent</module>
         <module>datawave-in-memory-accumulo</module>
         <module>datawave-accumulo-utils</module>
-        <!--<module>datawave-common-utils</module>-->
+        <module>datawave-common-utils</module>
         <module>datawave-metadata-utils</module>
-        <!--<module>datawave-type-utils</module>-->
+        <module>datawave-type-utils</module>
         <module>datawave-base-rest-responses</module>
-        <!--<module>datawave-metrics-reporter</module>-->
+        <module>datawave-metrics-reporter</module>
         <module>datawave-spring-boot-starter</module>
         <module>datawave-spring-boot-starter-audit</module>
         <module>datawave-spring-boot-starter-cache</module>
         <module>datawave-accumulo-service</module>
         <module>datawave-audit-service</module>
         <module>datawave-authorization-service</module>
-        <!--<module>datawave-config-service</module>-->
+        <module>datawave-config-service</module>
         <module>datawave-dictionary-service</module>
         <module>datawave-hazelcast-service</module>
+        <module>datawave-query-metric-service</module>
+        <module>datawave-spring-boot-starter-query-metric</module>
     </modules>
     <repositories>
         <repository>

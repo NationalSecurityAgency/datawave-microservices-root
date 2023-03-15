@@ -4,7 +4,7 @@ services:
     image: consul:1.9.8
     hostname: localhost
     environment:
-      - 'CONSUL_LOCAL_CONFIG={"datacenter": "demo_dc", "disable_update_check": true, "enable_agent_tls_for_checks": true, "key_file": "/etc/pki/testServer.key", "cert_file": "/etc/pki/testServer.cert", "ca_file": "/etc/pki/testCA.cert", "verify_outgoing": true, "verify_server_hostname": false}'
+      - 'CONSUL_LOCAL_CONFIG={"datacenter": "demo_dc", "disable_update_check": true, "enable_agent_tls_for_checks": true, "key_file": "/etc/pki/testServer.key", "cert_file": "/etc/pki/testServer.cert", "ca_file": "/etc/pki/ca.cert", "verify_outgoing": true, "verify_server_hostname": false}'
       - CONSUL_BIND_INTERFACE=eth0
     # defined as host:container
     ports:
@@ -74,7 +74,7 @@ services:
         condition: service_started
 
   cache:
-    image: datawave/hazelcast-service:1.8
+    image: datawave/hazelcast-service:1.9
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 2
     command:
@@ -159,7 +159,7 @@ services:
         condition: service_healthy
 
   audit:
-    image: datawave/audit-service:1.10
+    image: datawave/audit-service:1.12
     entrypoint: ["java","-DlogDir=/logs","-jar","app.jar"]
     scale: 1
     command:

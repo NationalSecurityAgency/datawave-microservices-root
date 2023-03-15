@@ -8,10 +8,10 @@ accumulo:
 
 server:
   ssl:
-    trust-store: 'classpath:testCA.p12'
-    trust-store-type: PKCS12
+    trust-store: '/etc/pki/ca.jks'
+    trust-store-type: JKS
     trust-store-password: 'ChangeIt'
-    key-store: 'classpath:testServer.p12'
+    key-store: '/etc/pki/testServer.p12'
     key-store-type: PKCS12
     key-store-password: 'ChangeIt'
 

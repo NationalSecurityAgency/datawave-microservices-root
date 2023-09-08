@@ -1,7 +1,7 @@
 server:
   ssl:
   outbound-ssl:
-    key-store: /etc/pki/discovery.p12
+    key-store: /etc/pki/testServer.p12
     key-store-password: 'ChangeIt'
     key-store-type: PKCS12
 
